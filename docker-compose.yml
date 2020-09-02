@@ -1,0 +1,15 @@
+version: "2.3"
+
+services:
+  lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: lab
+    container_name: jupyter_lab
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+    - "8888:8888"
+    volumes:
+    - ./notebooks:/home/jovyan/work/notebooks
